@@ -29,8 +29,8 @@ This directory contains "SKIE_pathHS.py" which extracts the pathologist-chosen h
 
 Create two distinct folders containing the H&E stained WSIs and the double immunostained WSIs in .svs format and specify their paths in "SKIE_main0619.py". The variable 'no_hotspots' decides the number of hot-spots to be extracted, which is five, in this study.
 
-You can run the code by typing in the command line:
-python SKIE_main0619.py 
+You can run the code by typing in the command line:<br/>
+'python SKIE_main0619.py' 
 
 For image registration, the ten landmark points to be selected on the two images to be registered have already been saved for the 50 WSIs, which can be retrieved via the function "get_xy_rev.py". In order to select you own set of points, comment out line 51 and add lines 53-65 which enables the user to select the landmark points, through an interactive window.
 
