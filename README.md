@@ -9,11 +9,11 @@ Whole slide images (WSIs) of three adjacent tissue sections stained with hemotox
 # Requirements
 
 Openslide (https://openslide.org/)<br/>
-NumPy (
-Skimage
-scipy
-OpenCV Python
-csv
+NumPy (<br/>
+Skimage<br/>
+scipy<br/>
+OpenCV Python<br/>
+csv<br/>
 
 
 #Automated hot-spot selection
