@@ -32,8 +32,10 @@ Pathologist_HS_estimation:<br/>
 This directory contains "SKIE_pathHS.py" which extracts the pathologist-chosen hot-spots from the annotated xml files and computes the Ki-67 index from the hot-spots. This directory also contains "getMaskFromXml.py" which is the function to automatically extract hot-spots of pre-determined size from xml files.
 
 Figures and supplementary files:<br/>
-This folder contains the codes used to generate figures 5,6,and 8, and the supplementary figure 4. "fig_5_6_8.m" is a MATLAB code that generates figures 5,6,8 and supplementary figure 4. It also contains a folder termed MATfiles which contains the .mat files necessary to compare the ground truth with SKIE's output.
-
+This folder contains the codes used to generate figures 5,6,and 8, and the supplementary figure 4. <br/>
+-The directory Fig_5_6_8 contains "fig_5_6_8.m",the MATLAB code that generates figures 5,6,8 and supplementary figure 4.
+-The directory MATfiles_functions contains the .mat files and "GenlogFn.m" code necessary to generate the result presented in the paper.
+-The directory WT_based_SKIE contains the code "SKIE_WTbased.py", to execute the weighted tile based SKIE.
 # Usage
 
 Create two distinct folders containing the H&E stained WSIs and the double immunostained WSIs in .svs format and specify their paths in "SKIE_main0619.py". The variable 'no_hotspots' decides the number of hot-spots to be extracted, which is five, in this study.
