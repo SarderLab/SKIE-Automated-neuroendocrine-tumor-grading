@@ -2,7 +2,7 @@
 """
 Created on Mon Mar  4 10:44:45 2019
 
-@author: d8
+@author: Darshana Govind (d8@buffalo)
 """
 
 import openslide
@@ -28,8 +28,13 @@ slide_no =2
 print(slide_no)
 no_hotspots = 5
 
-Thre = 0.01
 '''Variables'''
+'''=========='''
+Thre = 0.01
+DiscSize = 6
+nuc_ero_disc = 4
+
+'''Fixed values'''
 '''=========='''
 w = 250
 K = 3
@@ -49,7 +54,7 @@ syn1 = syn[:,:,0:3]
 he1 = heimg[:,:,0:3]
 
 print("Registering images...")
-x,y = get_xy_rev(slide_no) # Comment out line 54 and add lines 57 to 69 if you need to pick new registration points
+x,y = get_xy_rev(slide_no) # Comment out line 54 and uncomment lines 54 to 66 if you need to pick new registration points
 
 #plt.figure()
 #plt.imshow(he1)
@@ -71,7 +76,7 @@ im2 = transform.warp(he1, inverse_map=tform.inverse)
 print("Ki-67 and synaptophysin detection in mid resolution...")
 ihc_rgb = syn1
 [rbias,kbias] = getbias(slide_no)
-blur_red_mr,ki_mask_mr = col_deconv(ihc_rgb,rbias,kbias)
+blur_red_mr,ki_mask_mr = col_deconv(ihc_rgb,rbias,kbias, DiscSize)
 print("Find location of ki-67 positive nuclei within tumor regions")
 label_image1 = label(ki_mask_mr)
 
@@ -120,7 +125,7 @@ ID_stack = []
 
 while hotspot_count <no_hotspots:
     for ui in indx_histovalues:
-        crop_imghe,crop_imgsyn = getWindows(source2,source,int(xcenters[int(ui[0])]),int(ycenters[int(ui[1])]),tform)
+        crop_imghe,crop_imgsyn = getWindows(source2,source,int(xcenters[int(ui[0])]),int(ycenters[int(ui[1])]),tform,w)
         f2 =plt.figure()
         plt.imshow(crop_imgsyn)
         plt.show() 
@@ -130,7 +135,7 @@ while hotspot_count <no_hotspots:
         
         if user_input1=='y':
             start = time.time()
-            crop_imghe,crop_imgsyn = getWindows(source2,source,int(xcenters[int(ui[0])]),int(ycenters[int(ui[1])]),tform)
+            crop_imghe,crop_imgsyn = getWindows(source2,source,int(xcenters[int(ui[0])]),int(ycenters[int(ui[1])]),tform,w)
             hotspot_count+=1
             print(hotspot_count)
             cen = [int(ycenters[int(ui[1])]),int(xcenters[int(ui[0])])]
@@ -145,7 +150,7 @@ while hotspot_count <no_hotspots:
             _,syn_final =  cv2.threshold((syn_final),Thre,255,cv2.THRESH_BINARY)
             _,Ki_final =  cv2.threshold((Ki_final),Thre,255,cv2.THRESH_BINARY)
 
-            Blue_final2= getnucthre(crop_imghe[:,:,0:3],K,slide_no)
+            Blue_final2= getnucthre(crop_imghe[:,:,0:3],K,slide_no,nuc_ero_disc)
             
             Blue_final = cv2.bitwise_and(cv2.convertScaleAbs(Blue_final2),cv2.convertScaleAbs(syn_final))
 
