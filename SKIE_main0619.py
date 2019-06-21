@@ -2,7 +2,7 @@
 """
 Created on Mon Mar  4 10:44:45 2019
 
-@author: Darshana Govind (d8@buffalo.edu)
+@author: d8
 """
 
 import openslide
@@ -19,23 +19,20 @@ from get_xy_rev import get_xy_rev
 from skimage.measure import label,regionprops
 from getbias import getbias
 import time
+import math
 
 ''' User defined values'''
 '''===================='''
 
 slide_no =2
 print(slide_no)
-no_hotposts = 5 # User-defined number of hot-spots
-
-'''Variables'''
-'''=========='''
+no_hotspots = 5
 
 Thre = 0.01
-
-'''Fixed variables'''
+'''Variables'''
 '''=========='''
-w = 250 #hot-spot window size
-K = 3 #k-means cluster number
+w = 250
+K = 3
 
 '''Get pointer for WSI'''
 ''' ====================='''
@@ -52,7 +49,7 @@ syn1 = syn[:,:,0:3]
 he1 = heimg[:,:,0:3]
 
 print("Registering images...")
-x,y = get_xy_rev(slide_no) # Comment out line 55 and add lines 57 to 69 if you need to pick new registration points
+x,y = get_xy_rev(slide_no) # Comment out line 54 and add lines 57 to 69 if you need to pick new registration points
 
 #plt.figure()
 #plt.imshow(he1)
@@ -75,7 +72,6 @@ print("Ki-67 and synaptophysin detection in mid resolution...")
 ihc_rgb = syn1
 [rbias,kbias] = getbias(slide_no)
 blur_red_mr,ki_mask_mr = col_deconv(ihc_rgb,rbias,kbias)
-
 print("Find location of ki-67 positive nuclei within tumor regions")
 label_image1 = label(ki_mask_mr)
 
@@ -122,7 +118,7 @@ arrB = np.array([])
 arrK = np.array([])
 ID_stack = []
 
-while hotspot_count <no_hotposts:
+while hotspot_count <no_hotspots:
     for ui in indx_histovalues:
         crop_imghe,crop_imgsyn = getWindows(source2,source,int(xcenters[int(ui[0])]),int(ycenters[int(ui[1])]),tform)
         f2 =plt.figure()
@@ -187,10 +183,10 @@ while hotspot_count <no_hotposts:
             ax[3].contour(Ki_final,[0.5],linewidths = 4,colors = 'g')
             ax[3].contour(Blue_final,[0.5],colors = 'r')
 
-            ax[3].set_title("%d : B: (%.3f) ; K: (%.3f); IDX : (%.3f); Grade :(%d)" % (slide_no, BlueNO, KiNO, (KiNO/BlueNO), Grade))
+            ax[3].set_title("%d : B: (%.3f) ; K: (%.3f); IDX : (%.3f); Grade :(%d)" % (slide_no, math.floor(BlueNO), KiNO, (KiNO/BlueNO), Grade))
 
             ID_stack.append(IDX) 
-            if hotspot_count>=no_hotposts:
+            if hotspot_count>=no_hotspots:
                 break
         else:
             continue
