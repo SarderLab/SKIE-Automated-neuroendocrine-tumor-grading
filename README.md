@@ -20,13 +20,13 @@ csv (1.0) (https://docs.python.org/2/library/csv.html) <br/>
 "SKIE_main0619.py" reproduces the automated hot-spot selection and Ki-67 index results presented in the paper.  
 
 Functions:
-This directory contains the functions necessary to run "SKIE_main0619.py".
--get_xy_rev.py: The landmark points selected on the images to be registered are saved in this function. The input to this code is the slide number and the outputs are the set of landmark points for the double immunostained image and the corresponging H&E section.  
--getbias.py: This function supplies the intensity threshold bias for a few select WSIs with staining inconsistencies. 
--col_deconv_main.py: This function performs color deconvolution on the double immunostained image.
--getWindows.py: This function opens the selected hot-spots in high resolution.
--highRes_stainSep.py:This function performs k-means clustering on the H&E counterpart of the hot-spot and subsequently segments the nuclei.
--get_ki67_index.py: This function extracts the count of Ki-67 positive and negative cells, to obtain their ratio.
+This directory contains the functions necessary to run "SKIE_main0619.py".<br/>
+-get_xy_rev.py: The landmark points selected on the images to be registered are saved in this function. The input to this code is the slide number and the outputs are the set of landmark points for the double immunostained image and the corresponging H&E section. <br/> 
+-getbias.py: This function supplies the intensity threshold bias for a few select WSIs with staining inconsistencies. <br/>
+-col_deconv_main.py: This function performs color deconvolution on the double immunostained image.<br/>
+-getWindows.py: This function opens the selected hot-spots in high resolution.<br/>
+-highRes_stainSep.py:This function performs k-means clustering on the H&E counterpart of the hot-spot and subsequently segments the nuclei.<br/>
+-get_ki67_index.py: This function extracts the count of Ki-67 positive and negative cells, to obtain their ratio.<br/>
 
 Pathologist_HS_estimation:
 This directory contains "SKIE_pathHS.py" which extracts the pathologist-chosen hot-spots from the annotated xml files and computes the Ki-67 index from the hot-spots. This directory also contains "getMaskFromXml.py" which is the function to automatically extract hot-spots of pre-determined size from xml files.
