@@ -32,7 +32,7 @@ Pathologist_HS_estimation:<br/>
 This directory contains "SKIE_pathHS.py" which extracts the pathologist-chosen hot-spots from the annotated xml files and computes the Ki-67 index from the hot-spots. This directory also contains "getMaskFromXml.py" which is the function to automatically extract hot-spots of pre-determined size from xml files.
 
 Figures and supplementary files:<br/>
-This folder contains the codes used to generate figures 5,6,and 8, and the supplementary figure 4. "fig_5_6_8.m" is a MATLAB code that generates figures 5,6,8 and supplementary figure 4. 
+This folder contains the codes used to generate figures 5,6,and 8, and the supplementary figure 4. "fig_5_6_8.m" is a MATLAB code that generates figures 5,6,8 and supplementary figure 4. It also contains a folder termed MATfiles which contains the .mat files necessary to compare the ground truth with SKIE's output.
 
 # Usage
 
