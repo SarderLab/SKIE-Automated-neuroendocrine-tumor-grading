@@ -2,7 +2,7 @@
 """
 Created on Mon Mar  4 10:44:45 2019
 
-@author: d8
+@author: Darshana Govind (d8@buffalo.edu)
 """
 
 import openslide
