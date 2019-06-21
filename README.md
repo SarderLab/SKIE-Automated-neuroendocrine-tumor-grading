@@ -4,7 +4,7 @@ This repository contains the source codes for the publication,"Automated hotspot
 
 # Image data
 
-Whole slide images (WSIs) of three adjacent tissue sections stained with hemotoxylin and eosin (H&E), Ki-67 alone, and double immunohistochemical staining (synaptophysin-Ki-67-hemotoxylin) from 50 gastrointestinal neuroendocrine tumor (GI-NET) biopsies are available from: (https://buffalo.app.box.com/folder/79962857765)
+Whole slide images (WSIs) of three adjacent tissue sections stained with hemotoxylin and eosin (H&E), Ki-67 alone, and double immunohistochemical staining (synaptophysin-Ki-67-hemotoxylin) from 50 gastrointestinal neuroendocrine tumor (GI-NET) biopsies are available at: (https://buffalo.app.box.com/folder/79962857765)
 
 # Requirements
 
