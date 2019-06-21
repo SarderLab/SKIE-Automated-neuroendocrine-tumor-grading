@@ -19,7 +19,7 @@ csv (1.0) (https://docs.python.org/2/library/csv.html) <br/>
 
 "SKIE_main0619.py" reproduces the automated hot-spot selection and Ki-67 index results presented in the paper.  
 
-Functions:
+Functions: <br/>
 This directory contains the functions necessary to run "SKIE_main0619.py".<br/>
 -get_xy_rev.py: The landmark points selected on the images to be registered are saved in this function. The input to this code is the slide number and the outputs are the set of landmark points for the double immunostained image and the corresponging H&E section. <br/> 
 -getbias.py: This function supplies the intensity threshold bias for a few select WSIs with staining inconsistencies. <br/>
@@ -28,10 +28,10 @@ This directory contains the functions necessary to run "SKIE_main0619.py".<br/>
 -highRes_stainSep.py:This function performs k-means clustering on the H&E counterpart of the hot-spot and subsequently segments the nuclei.<br/>
 -get_ki67_index.py: This function extracts the count of Ki-67 positive and negative cells, to obtain their ratio.<br/>
 
-Pathologist_HS_estimation:
+Pathologist_HS_estimation:<br/>
 This directory contains "SKIE_pathHS.py" which extracts the pathologist-chosen hot-spots from the annotated xml files and computes the Ki-67 index from the hot-spots. This directory also contains "getMaskFromXml.py" which is the function to automatically extract hot-spots of pre-determined size from xml files.
 
-Figures and supplementary files:
+Figures and supplementary files:<br/>
 This folder contains the codes used to generate figures 5,6,and 8, and the supplementary figure 4. "fig_5_6_8.m" is a MATLAB code that generates figures 5,6,8 and supplementary figure 4. 
 
 # Usage
