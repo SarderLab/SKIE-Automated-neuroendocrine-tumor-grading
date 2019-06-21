@@ -25,13 +25,17 @@ import time
 
 slide_no =2
 print(slide_no)
-no_hotposts = 5
+no_hotposts = 5 # User-defined number of hot-spots
 
-Thre = 0.01
 '''Variables'''
 '''=========='''
-w = 250
-K = 3
+
+Thre = 0.01
+
+'''Fixed variables'''
+'''=========='''
+w = 250 #hot-spot window size
+K = 3 #k-means cluster number
 
 '''Get pointer for WSI'''
 ''' ====================='''
@@ -48,7 +52,7 @@ syn1 = syn[:,:,0:3]
 he1 = heimg[:,:,0:3]
 
 print("Registering images...")
-x,y = get_xy_rev(slide_no) # Comment out line 54 and add lines 57 to 69 if you need to pick new registration points
+x,y = get_xy_rev(slide_no) # Comment out line 55 and add lines 57 to 69 if you need to pick new registration points
 
 #plt.figure()
 #plt.imshow(he1)
@@ -71,6 +75,7 @@ print("Ki-67 and synaptophysin detection in mid resolution...")
 ihc_rgb = syn1
 [rbias,kbias] = getbias(slide_no)
 blur_red_mr,ki_mask_mr = col_deconv(ihc_rgb,rbias,kbias)
+
 print("Find location of ki-67 positive nuclei within tumor regions")
 label_image1 = label(ki_mask_mr)
 
