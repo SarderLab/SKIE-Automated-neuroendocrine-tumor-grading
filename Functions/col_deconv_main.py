@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jul 26 16:50:22 2018
-
-@author: Darshana Govind (d8@buffalo.edu)
-"""
 import numpy as np
 from numpy import linalg
 from skimage.util import dtype
